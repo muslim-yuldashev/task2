@@ -29,9 +29,12 @@ function getSavedPositions() {
 		if (positions) {
 			saved = JSON.parse(saved);
 			if (Array.isArray(saved) && saved.length == SHAPE_COUNT) {
-				positions = saved;
-			}
-		}
+				positions = saved.map((p) => {
+				p.isDragging= false;
+				return p;
+			});
+		     }
+	           }
 		
 	} catch(e) {
 		console.log(e);
